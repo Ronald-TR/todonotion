@@ -2,7 +2,6 @@ package todonotion
 
 import (
 	"context"
-	"fmt"
 	"os"
 
 	"github.com/dstotijn/go-notion"
@@ -79,7 +78,6 @@ func (c *TodoClient) DeleteCard(card *Card) error {
 		Archived:               true,
 	})
 	card.Page = page
-	fmt.Println(card.Page.ID)
 	return err
 }
 
@@ -88,6 +86,16 @@ func (c *TodoClient) DeleteCardById(id string) error {
 		DatabasePageProperties: &notion.DatabasePageProperties{},
 		Archived:               true,
 	})
-	fmt.Println(err)
+	return err
+}
+
+func (c *TodoClient) MoveCard(card *Card, to LaneType) error {
+	_, err := c.client.UpdatePageProps(context.Background(), card.Page.ID, notion.UpdatePageParams{
+		DatabasePageProperties: &notion.DatabasePageProperties{
+			"Status": {
+				Select: &notion.SelectOptions{Name: string(to)},
+			},
+		},
+	})
 	return err
 }

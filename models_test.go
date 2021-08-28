@@ -18,7 +18,13 @@ var _ = Describe("Models", func() {
 	})
 	Context("Card CRUD", func() {
 		It("Create a new card in ToDo", func() {
-			Expect(client.CreateCard(card, todonotion.LaneTypeDoing)).To(BeNil())
+			Expect(client.CreateCard(card, todonotion.LaneTypeToDo)).To(BeNil())
+		})
+		It("Move card to Doing", func() {
+			Expect(client.MoveCard(card, todonotion.LaneTypeDoing)).To(BeNil())
+		})
+		It("Move card to Done", func() {
+			Expect(client.MoveCard(card, todonotion.LaneTypeDone)).To(BeNil())
 		})
 		It("Remove card previously created", func() {
 			Expect(client.DeleteCard(card)).To(BeNil())
