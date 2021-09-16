@@ -1,4 +1,4 @@
-package todonotion_test
+package entity_test
 
 import (
 	"testing"

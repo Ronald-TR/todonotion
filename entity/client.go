@@ -1,4 +1,4 @@
-package todonotion
+package entity
 
 import (
 	"context"
@@ -22,12 +22,6 @@ type Config struct {
 	DatabaseId string
 }
 
-type Card struct {
-	Title    string
-	Property string
-	Page     notion.Page
-}
-
 type TodoClient struct {
 	client *notion.Client
 	cfg    *Config
@@ -37,13 +31,6 @@ func NewConfig() *Config {
 	return &Config{
 		NotionKey:  os.Getenv("NOTION_KEY"),
 		DatabaseId: os.Getenv("NOTION_DATABASE_ID"),
-	}
-}
-
-func NewCard(title string, property string) *Card {
-	return &Card{
-		Title:    title,
-		Property: property,
 	}
 }
 
