@@ -8,6 +8,7 @@ import (
 )
 
 var (
+	mvLane    string
 	mvCardCmd = &cobra.Command{
 		Use:   "mv",
 		Short: "Move the card in Task board",
@@ -15,7 +16,7 @@ var (
 		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			card.Title = args[0]
-			card.SetLane(lane)
+			card.SetLane(mvLane)
 			err := client.FindCardByName(card)
 			if err != nil {
 				log.Fatalln(err)
@@ -30,5 +31,5 @@ var (
 )
 
 func init() {
-	mvCardCmd.PersistentFlags().StringVarP(&lane, "lane", "l", "To Do", "Lane to move the card.")
+	mvCardCmd.PersistentFlags().StringVarP(&mvLane, "lane", "l", "To Do", "Lane to move the card.")
 }

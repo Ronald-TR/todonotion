@@ -94,11 +94,15 @@ func (c *TodoClient) FindCardByName(card *Card) error {
 }
 
 // Injects inside the Card parameter the Page result
-func (c *TodoClient) MapCardsByProperty(property string, fn func(card *Card)) error {
+func (c *TodoClient) MapCardsBy(fn func(card *Card), options ...CustomFilter) error {
+	var filters []notion.DatabaseQueryFilter
+	for _, customFilter := range options {
+		if len(customFilter.Value) != 0 {
+			filters = append(filters, customFilter.GetFilter())
+		}
+	}
 	dbresult, err := c.client.QueryDatabase(context.Background(), c.cfg.DatabaseId, &notion.DatabaseQuery{
-		Filter: &notion.DatabaseQueryFilter{
-			Property: "Property",
-			Select:   &notion.SelectDatabaseQueryFilter{Equals: property}}},
+		Filter: &notion.DatabaseQueryFilter{And: filters}},
 	)
 	if err != nil {
 		return err
@@ -106,7 +110,11 @@ func (c *TodoClient) MapCardsByProperty(property string, fn func(card *Card)) er
 
 	for _, page := range dbresult.Results {
 		props := page.Properties.(notion.DatabasePageProperties)
-		card := NewCard(props["Name"].Title[0].PlainText, props["Property"].Select.Name)
+
+		card := NewCard(props["Name"].Title[0].PlainText, "")
+		if val, ok := props["Property"]; ok {
+			card.Property = val.Select.Name
+		}
 		card.SetLane(props["Status"].Select.Name)
 		card.Page = page
 		fn(card)

@@ -8,7 +8,6 @@ import (
 var (
 	client  = entity.NewTodoClient()
 	card    = entity.NewCard("", "")
-	lane    string
 	rootCmd = &cobra.Command{
 		Use:   "todonotion",
 		Short: "Todonotion is a todo replication inside Notion.so",
@@ -31,4 +30,5 @@ func init() {
 	rootCmd.AddCommand(newCardCmd)
 	rootCmd.AddCommand(mvCardCmd)
 	rootCmd.AddCommand(mvpCardCmd)
+	rootCmd.AddCommand(lsCardsCmd)
 }

@@ -5,13 +5,18 @@ import (
 )
 
 type (
-	LaneType string
+	LaneType   string
+	FilterType string
 )
 
 const (
 	LaneTypeToDo  LaneType = "To Do"
 	LaneTypeDoing LaneType = "Doing"
 	LaneTypeDone  LaneType = "Done"
+
+	FilterTypeProperty FilterType = "Property"
+	FilterTypeLane     FilterType = "Status"
+	FilterTypeTitle    FilterType = "Name"
 )
 
 type Config struct {
@@ -27,6 +32,22 @@ type Card struct {
 }
 
 func GetLaneType(lane string) LaneType {
+	var output LaneType
+
+	switch lane {
+	case "To Do":
+		output = LaneTypeToDo
+	case "Doing":
+		output = LaneTypeDoing
+	case "Done":
+		output = LaneTypeDone
+	default:
+		output = LaneTypeToDo
+	}
+	return output
+}
+
+func GetFilterType(lane string) LaneType {
 	var output LaneType
 
 	switch lane {

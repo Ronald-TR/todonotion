@@ -16,14 +16,14 @@ var (
 		Long:  "Given a Property Select name, move all cards.",
 		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
-			client.MapCardsByProperty(args[0], func(card *entity.Card) {
+			client.MapCardsBy(func(card *entity.Card) {
 				lanefrom := entity.GetLaneType(from)
 				laneto := entity.GetLaneType(to)
 				if lanefrom == card.Lane {
 					client.MoveCard(card, laneto)
 					fmt.Printf("Card: %s moved to: %s\n", card.Title, laneto)
 				}
-			})
+			}, entity.CustomFilter{Type: entity.FilterTypeProperty, Value: args[0]})
 		},
 	}
 )
