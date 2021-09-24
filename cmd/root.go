@@ -31,4 +31,5 @@ func init() {
 	rootCmd.AddCommand(mvCardCmd)
 	rootCmd.AddCommand(mvpCardCmd)
 	rootCmd.AddCommand(lsCardsCmd)
+	rootCmd.AddCommand(delCardCmd)
 }

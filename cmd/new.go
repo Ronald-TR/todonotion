@@ -10,7 +10,7 @@ var (
 	newLane    string
 	newCardCmd = &cobra.Command{
 		Use:   "new",
-		Short: "Create card in Task board",
+		Short: "Create a card on the Task board",
 		Long:  "",
 		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {

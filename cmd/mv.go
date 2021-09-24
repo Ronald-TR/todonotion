@@ -11,7 +11,7 @@ var (
 	mvLane    string
 	mvCardCmd = &cobra.Command{
 		Use:   "mv",
-		Short: "Move the card in Task board",
+		Short: "Moves one card between the Task board lanes",
 		Long:  "Given a entire or part of card title, finds the first ocurrence and then move it.",
 		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {

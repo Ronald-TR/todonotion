@@ -14,7 +14,7 @@ var (
 	lsProperty string
 	lsCardsCmd = &cobra.Command{
 		Use:   "ls",
-		Short: "List all cards in a given Lane from Task board",
+		Short: "List all cards for a given Lane on the Task board, accepts filter aggregation",
 		Long:  "",
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Printf("%s Cards:\n\n", lsLane)

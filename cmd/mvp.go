@@ -12,8 +12,8 @@ var (
 	to         string
 	mvpCardCmd = &cobra.Command{
 		Use:   "mvp",
-		Short: "Move all the cards in Task board between lanes",
-		Long:  "Given a Property Select name, move all cards.",
+		Short: "Moves all cards between the Task board lanes",
+		Long:  "Given a Property Select name, moves all cards.",
 		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			client.MapCardsBy(func(card *entity.Card) {
