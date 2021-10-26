@@ -6,6 +6,14 @@ A golang rewrite of the following project [todo.sh-notion](https://github.com/Ro
 
 Visit the [releases](https://github.com/Ronald-TR/todonotion/releases) page and download the right version for your platform, then add the binary into your PATH directory.
 
+## Configuration
+
+You will need to add in your PATH the following environment variables:
+
+    NOTION_DATABASE_ID='The id of your Task Board'
+    NOTION_KEY='Your Notion API key'
+
+
 ## Usage
 
 Following the built-in usage message:
