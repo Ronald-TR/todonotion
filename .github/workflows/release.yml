@@ -6,23 +6,12 @@ on:
       - '*'
 
 jobs:
-  build:
-    name: Build and Upload Releases
+  run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.16
-      - name: Build project
-        run: |
-          make go_build_all
-    run:
-      name: Upload releases
-      - uses: actions/checkout@v2
-      - run: |
+    - uses: actions/checkout@v2
+    - run: |
+        make go_build_all
         set -x
         assets=()
         for asset in ./*.tar.gz; do
