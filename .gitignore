@@ -1,4 +1,4 @@
 .env
 *.tar.gz
 todonotion
-docs/themes
+docs/src/themes

@@ -30,3 +30,9 @@ go_build_all: go_build_linux_386 go_build_mac_arm64 go_build_windows_386
 doc-get-theme:
 	mkdir -p docs/themes/hugo-geekdoc
 	curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C docs/themes/hugo-geekdoc/ --strip-components=1
+
+doc-build:
+	cd docs/src && hugo --destination ../ && cd ..
+
+doc-clean:
+	cd docs && ls -1 | grep -v "src" | xargs rm -r && cd ..
