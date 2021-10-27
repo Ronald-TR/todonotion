@@ -10,27 +10,24 @@ jobs:
     name: Build and Upload Releases
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v2
-      -
-        name: Set up Go
+      - name: Set up Go
         uses: actions/setup-go@v2
         with:
           go-version: 1.16
-      -
-        name: Build project
+      - name: Build project
         run: |
           make go_build_all
       - name: Upload releases
-        uses: actions/checkout@v2
-        run: |
-          set -x
-          assets=()
-          for asset in ./*.tar.gz; do
-            assets+=("-a" "$asset")
-          done
-          tag_name="${GITHUB_REF##*/}"
-          hub release create "${assets[@]}" -m "$tag_name" "$tag_name"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - run: |
+        set -x
+        assets=()
+        for asset in ./*.tar.gz; do
+          assets+=("-a" "$asset")
+        done
+        tag_name="${GITHUB_REF##*/}"
+        hub release create "${assets[@]}" -m "$tag_name" "$tag_name"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
