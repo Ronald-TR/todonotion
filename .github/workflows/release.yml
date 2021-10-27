@@ -19,7 +19,8 @@ jobs:
       - name: Build project
         run: |
           make go_build_all
-      - name: Upload releases
+    run:
+      name: Upload releases
       - uses: actions/checkout@v2
       - run: |
         set -x
