@@ -16,7 +16,7 @@ Wellcome to the **TodoNotion** page!
 
 **todonotion** is a terminal based utility that simulate kanban boards inside Notion Task Lists
 
-{{< button size="large" relref="usage/getting-started/" >}}Getting Started{{< /button >}}
+{{< button size="large" relref="/usage/getting-started/" >}}Getting Started{{< /button >}}
 
 ## Feature overview
 
