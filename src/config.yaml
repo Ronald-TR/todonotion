@@ -1,4 +1,5 @@
-baseURL: https://geekdocs.de/
+baseURL: https://ronald-tr.github.io/
+
 title: TodoNotion
 theme: hugo-geekdoc
 pygmentsUseClasses: true
