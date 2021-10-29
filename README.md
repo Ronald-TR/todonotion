@@ -2,6 +2,10 @@
 
 A golang rewrite of the following project [todo.sh-notion](https://github.com/Ronald-TR/todo.sh-notion), this version is much faster than the previous one, because uses the official **notion api** instead of a session-based crawler.
 
+# Visit the documentation
+
+Please, visit the official [todonotion](https://ronald-tr.github.io/todonotion/) documentation to know how to setup and use this utility!
+
 ## Installation 
 
 Visit the [releases](https://github.com/Ronald-TR/todonotion/releases) page and download the right version for your platform, then add the binary into your PATH directory.
@@ -40,8 +44,8 @@ Flags:
   -h, --help   help for todonotion
 
 Use "todonotion [command] --help" for more information about a command.
-```
 
+```
 You can use `todonotion <command> -h` to see the help message for each specific command.
 
 For example, the help message for `new` command:
