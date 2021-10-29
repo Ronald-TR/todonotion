@@ -12,46 +12,36 @@ Wellcome to **todonotion** Get Started page!
 **todonotion** is a terminal based app that uses the **Notion.so Task List** to replicate the Kanban board
 for **To Do**, **Doing** and **Done**.
 
-# Installation
+You can create, list, move and delete cards without leaving the terminal! And using the Notion.so page as a database, which is the core and the bonus of our utilitary!
 
-Go to [releases](https://github.com/Ronald-TR/todonotion/releases) page and choose the right choice to your platform:
+## Installation
 
-```bash
-  curl -LO https://github.com/Ronald-TR/todonotion/releases/download/v0.1.0/todonotion-linux-386.tar.gz
-  tar -xzvf todonotion-linux-386.tar.gz
-  chmod +x todonotion
-  sudo ln -s todonotion /usr/local/bin
-```
-
-Or, you can use the default `install.sh` script that does the installation with one line:
+{{< hint ok >}}
+You can find all detais in our installation guide on {{< button relref="installation/" >}}Installation{{< /button >}} page. Please go there!
+{{< /hint >}}
 
 
-    curl https://raw.githubusercontent.com/Ronald-TR/todonotion/master/install.sh | bash
+## Configuring the access to Notion API
+
+First of all, duplicate this [task list template](https://www.notion.so/9734e8c4df1441f594e44d9c068c7780?v=005250cb1ef74bacb2e466530802510e) into your notion workspace, we will use it to speed up our setup.
+
+{{< hint info >}}
+The ***duplicate*** button may appear in top-right corner.
+{{< /hint >}}
 
 
-You can type `todonotion -h` and you will see the help message:
+We also need the following environment variables:
 
-```
-A quick way to generate cards that needs to be done without leaving the terminal.
-				Full documentation here: https://github.com/ronald-tr/todonotion
+* NOTION_KEY
+* NOTION_DATABASE_ID
+  
 
-Usage:
-  todonotion [flags]
-  todonotion [command]
+Follow the **step1** [this guide](https://developers.notion.com/docs/getting-started) to claim your **NOTION_KEY** and follows the **step2**, but instead of creating some new database, uses the database that you create from our duplicated template.
 
-Available Commands:
-  completion  generate the autocompletion script for the specified shell
-  del         Delete one card from the Task board
-  help        Help about any command
-  ls          List all cards for a given Lane on the Task board, accepts filter aggregation
-  mv          Moves one card between the Task board lanes
-  mvp         Moves all cards between the Task board lanes
-  new         Create a card on the Task board
+Now that you have them, export the variables:
 
-Flags:
-  -h, --help   help for todonotion
+    export NOTION_KEY=<your secret>
+    export NOTION_DATABASE_ID=<your database created above>
 
-Use "todonotion [command] --help" for more information about a command.
-```
 
-yay! it works!
+That's enough to get `todonotion` working like a charm.
