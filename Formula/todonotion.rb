@@ -1,6 +1,6 @@
 require "formula"
 
-class Rdpcli < Formula
+class Todonotion < Formula
     desc "A todonotion CLI to improve productivity"
     homepage "https://github.com/Ronald-TR/todonotion"
     url "https://github.com/Ronald-TR/todonotion/releases/download/v0.1.0/todonotion-mac-arm64.tar.gz"
