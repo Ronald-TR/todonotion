@@ -10,6 +10,20 @@ Please, visit the official [todonotion](https://ronald-tr.github.io/todonotion/)
 
 Visit the [releases](https://github.com/Ronald-TR/todonotion/releases) page and download the right version for your platform, then add the binary into your PATH directory.
 
+### Homebrew
+
+```
+# first of all, tap the repository
+brew tap Ronald-TR/todonotion git@github.com:Ronald-TR/todonotion.git # you can try change with https clone method if you are facing any trouble
+
+brew install todonotion
+```
+
+to check if the installation goes well, do:
+
+	❯ todonotion version
+	v0.2.0
+
 ## Configuration
 
 You will need to add in your PATH the following environment variables:
